@@ -490,7 +490,7 @@ workflows:
 
       - build-ios-release:
           context: mattermost-mobile-ios-release
-          #requires:
+          requires:
             #- test
           filters:
             branches:
