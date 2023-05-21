@@ -479,30 +479,16 @@ workflows:
   version: 2
   build:
     jobs:
-      #- test
+      # - test
       # - check-deps:
       #     context: sast-webhook
       #     requires:
-      #       - F
-
-
-
+      #       - test
 
       - build-ios-release:
           context: mattermost-mobile-ios-release
-          requires:
-            #- test
-          filters:
-            branches:
-              only:
-                - /^build-release-\d+$/
-                - /^build-ios-release-\d+$/
+
       - deploy-ios-release:
           context: mattermost-mobile-ios-release
           requires:
             - build-ios-release
-          filters:
-            branches:
-              only:
-                - /^build-release-\d+$/
-                - /^build-ios-release-\d+$/
